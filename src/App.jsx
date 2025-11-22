@@ -1,9 +1,11 @@
 
+import AppRouter from "./routes/AppRouter"
+
 function App() {
 
   return (
     <>
-      <h1>Learning Today features</h1>
+      <AppRouter/>
     </>
   )
 }

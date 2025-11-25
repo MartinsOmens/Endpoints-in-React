@@ -5,6 +5,7 @@ import HomeCards from '../components/HomeCards'
 import JobListings from '../components/JobListings'
 import ViewAllJobs from '../components/ViewAllJobs'
 
+
 const Home = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const Home = () => {
         <HomeCards/>
         <JobListings isHome={true}/>
         <ViewAllJobs/>
+      
     </>
   )
 }

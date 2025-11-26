@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Spinner from "./Spinner";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-const JobPage = () => {
+const JobPage = ({ deleteJob }) => {
   const [job, setJob] = useState({});
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +24,15 @@ const JobPage = () => {
     };
     fetchData();
   }, [id]);
+
+  const onDeleteClick = async (id) => {
+    const confirm = window.confirm("Are you sure you want to delete this job?");
+    if (!confirm) return;
+
+    deleteJob(id);
+    toast.success("Job deleted successfully!");
+    navigate("/jobs");
+  };
 
   return (
     <>

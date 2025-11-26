@@ -5,9 +5,7 @@ import Spinner from "./Spinner";
 const JobListings = ({ isHome }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-
   
-
   useEffect(() => {
     const apiUrl = isHome
       ? "/api/jobs?_limit=3"
